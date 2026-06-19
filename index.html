@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MadeByLA — AI Creative Freelancer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080810;
+      --bg-card: #0e0e1a;
+      --bg-hover: #13131f;
+      --accent: #7c6dfa;
+      --accent-glow: rgba(124, 109, 250, 0.18);
+      --accent-light: #a99ff7;
+      --text: #eeeef5;
+      --text-muted: rgba(238,238,245,0.45);
+      --text-dim: rgba(238,238,245,0.2);
+      --border: rgba(255,255,255,0.07);
+      --border-accent: rgba(124,109,250,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(8, 8, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(124,109,250,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+      color: var(--text);
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--accent-light);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 0.5px solid var(--border);
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent-light); }
+
+    .scroll-hint {
+      margin-top: 4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 0.5px;
+      background: var(--text-dim);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      transition: background 0.25s;
+      position: relative;
+    }
+
+    .service-card:hover { background: var(--bg-hover); }
+
+    .service-card:hover .service-num { color: var(--accent); }
+
+    .service-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+      transition: color 0.25s;
+    }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 1rem;
+    }
+
+    .service-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* TOOLS */
+    .tools-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2.5rem;
+    }
+
+    .tool-chip {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      padding: 6px 14px;
+      border: 0.5px solid var(--border-accent);
+      border-radius: 100px;
+      color: var(--accent-light);
+      background: var(--accent-glow);
+      letter-spacing: 0.03em;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-title {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .about-text {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .profile-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border-accent);
+      border-radius: 14px;
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(124,109,250,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--accent-glow);
+      border: 1.5px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-light);
+      position: relative;
+    }
+
+    .avatar-status {
+      position: absolute;
+      bottom: 3px;
+      right: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #4ade80;
+      border: 2px solid var(--bg-card);
+    }
+
+    .profile-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .profile-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .available-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      color: #4ade80;
+      background: rgba(74,222,128,0.08);
+      border: 0.5px solid rgba(74,222,128,0.2);
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .available-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(124,109,250,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-title {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      background: transparent;
+    }
+
+    .contact-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent-light);
+      background: var(--accent-glow);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2.5rem 3rem;
+      border-top: 0.5px solid var(--border);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-box { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Made<span>By</span>LA</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">AI-powered creative freelancer</p>
+    <h1>Content that looks<br><em>actually premium.</em></h1>
+    <p class="hero-sub">I help brands, creators, and businesses stand out through AI-enhanced visuals, persona creation, and content that converts — crafted with the tools that matter.</p>
+    <div class="cta-row">
+      <a href="#services" class="btn-primary">See my services ↓</a>
+      <a href="#contact" class="btn-ghost">Work with me</a>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-line"></span>
+      Scroll to explore
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-label">What I do</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <p class="service-num">01</p>
+        <div class="service-icon">🖼️</div>
+        <p class="service-title">AI Image Enhancement & Upscaling</p>
+        <p class="service-desc">Low-res to high-quality. Product photos, portraits, and brand assets made sharper, cleaner, and more professional using AI upscaling tools.</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-num">02</p>
+        <div class="service-icon">🤖</div>
+        <p class="service-title">AI Influencer & Persona Creation</p>
+        <p class="service-desc">Custom AI personas built for social media — consistent face, unique backstory, and platform-ready content pipelines from scratch.</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-num">03</p>
+        <div class="service-icon">✨</div>
+        <p class="service-title">AI Content Creation</p>
+        <p class="service-desc">Captions, scripts, threads, and copy — written with AI and refined for real engagement. Built for brands that want to sound human, not robotic.</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-num">04</p>
+        <div class="service-icon">🎬</div>
+        <p class="service-title">Video Editing</p>
+        <p class="service-desc">Reels, short-form clips, and branded videos edited in CapCut with cinematic cuts, zoom punches, speed ramps, and polished transitions.</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-num">05</p>
+        <div class="service-icon">📱</div>
+        <p class="service-title">Social Media Management</p>
+        <p class="service-desc">Strategy, scheduling, and content systems that grow your presence consistently — without burning you or your budget out.</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-num">06</p>
+        <div class="service-icon">🎨</div>
+        <p class="service-title">Graphic Design</p>
+        <p class="service-desc">Canva-based visuals — social posts, brand kits, pitch decks, and marketing materials. Fast turnaround, polished output.</p>
+      </div>
+
+    </div>
+
+    <div class="tools-row">
+      <span class="tool-chip">Leonardo AI</span>
+      <span class="tool-chip">Midjourney</span>
+      <span class="tool-chip">Kling AI</span>
+      <span class="tool-chip">Flux Pro</span>
+      <span class="tool-chip">Mystic 2.5</span>
+      <span class="tool-chip">CapCut</span>
+      <span class="tool-chip">Canva Pro</span>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div>
+        <h2 class="about-title">A creative who actually knows how to use AI.</h2>
+        <p class="about-text">I'm LA — a Filipino freelancer specializing in AI-powered creative services. From building full AI influencer personas to editing cinematic short-form videos, I bring both the technical skill and the creative eye to every project.</p>
+        <p class="about-text">I work with the tools that are actually moving the industry right now — not just talking about AI, but building with it every day. Based in the Philippines, open to global clients.</p>
+        <div class="stats-row">
+          <div>
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Services offered</div>
+          </div>
+          <div>
+            <div class="stat-num">7+</div>
+            <div class="stat-label">AI tools mastered</div>
+          </div>
+          <div>
+            <div class="stat-num">PH</div>
+            <div class="stat-label">Based, global ready</div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="avatar">
+          LA
+          <div class="avatar-status"></div>
+        </div>
+        <p class="profile-name">L.A. Evangelista</p>
+        <p class="profile-role">AI Creative Freelancer · Philippines</p>
+        <div class="available-badge">
+          <span class="available-dot"></span>
+          Available for projects
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box">
+      <h2 class="contact-title">Let's work together.</h2>
+      <p class="contact-sub">Available for freelance projects. Reach out and let's talk about what you need.</p>
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="contact-chip">📧 Email me</a>
+        <a href="#" class="contact-chip">💼 Fiverr</a>
+        <a href="#" class="contact-chip">🌐 Upwork</a>
+        <a href="#" class="contact-chip">📸 Instagram</a>
+        <a href="#" class="contact-chip">👍 Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    MadeByLA © 2026 &nbsp;·&nbsp; Built with AI, refined by hand. &nbsp;·&nbsp; Philippines
+  </footer>
+
+</body>
+</html>
