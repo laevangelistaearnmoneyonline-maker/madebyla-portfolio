@@ -514,6 +514,127 @@
       margin: 0 auto;
     }
 
+    /* HERO ANIMATIONS */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.12); }
+    }
+
+    @keyframes floatHint {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50%       { transform: translateY(6px); opacity: 0.8; }
+    }
+
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .hero-anim { opacity: 0; }
+
+    .hero-anim.a1 { animation: fadeSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards; }
+    .hero-anim.a2 { animation: fadeSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s forwards; }
+    .hero-anim.a3 { animation: fadeSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.7s forwards; }
+    .hero-anim.a4 { animation: fadeSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.95s forwards; }
+    .hero-anim.a5 { animation: fadeSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 1.2s forwards; }
+
+    .hero::before {
+      animation: glowPulse 5s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 15%;
+      left: -5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(124,109,250,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      animation: glowPulse 7s ease-in-out 2s infinite;
+    }
+
+    .scroll-hint {
+      animation: floatHint 2.5s ease-in-out infinite;
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.85em;
+      background: var(--accent-light);
+      margin-left: 4px;
+      vertical-align: middle;
+      border-radius: 1px;
+      animation: cursorBlink 0.85s step-end infinite;
+    }
+
+    /* SCROLL ANIMATIONS */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal.delay-1 { transition-delay: 0.1s; }
+    .scroll-reveal.delay-2 { transition-delay: 0.2s; }
+    .scroll-reveal.delay-3 { transition-delay: 0.3s; }
+    .scroll-reveal.delay-4 { transition-delay: 0.4s; }
+    .scroll-reveal.delay-5 { transition-delay: 0.5s; }
+    .scroll-reveal.delay-6 { transition-delay: 0.6s; }
+
+    /* GLITCH EFFECT */
+    .glitch {
+      position: relative;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .glitch.active::before {
+      color: #ff6ec7;
+      clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+      transform: translateX(-3px);
+      animation: glitch-a 0.15s steps(1) forwards;
+    }
+    .glitch.active::after {
+      color: #6ef6ff;
+      clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+      transform: translateX(3px);
+      animation: glitch-b 0.15s steps(1) 0.05s forwards;
+    }
+    @keyframes glitch-a {
+      0%   { clip-path: polygon(0 20%, 100% 20%, 100% 35%, 0 35%); transform: translateX(-4px); }
+      33%  { clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%); transform: translateX(3px); }
+      66%  { clip-path: polygon(0 5%,  100% 5%,  100% 20%, 0 20%); transform: translateX(-2px); }
+      100% { clip-path: polygon(0 0,   100% 0,   100% 0,   0 0);   transform: translateX(0); }
+    }
+    @keyframes glitch-b {
+      0%   { clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%); transform: translateX(4px); }
+      33%  { clip-path: polygon(0 80%, 100% 80%, 100% 95%, 0 95%); transform: translateX(-3px); }
+      66%  { clip-path: polygon(0 40%, 100% 40%, 100% 55%, 0 55%); transform: translateX(2px); }
+      100% { clip-path: polygon(0 0,   100% 0,   100% 0,   0 0);   transform: translateX(0); }
+    }
+
+    /* COUNT-UP */
+    .stat-num { transition: color 0.3s; }
+    .stat-num.counting { color: var(--accent-light); }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -527,6 +648,18 @@
 </head>
 <body>
 
+  <!-- PARTICLE CANVAS -->
+  <canvas id="particle-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+
+  <!-- MOUSE GLOW -->
+  <div id="mouse-glow" style="position:fixed;pointer-events:none;z-index:1;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,109,250,0.18) 0%,rgba(124,109,250,0.06) 40%,transparent 70%);transform:translate(-50%,-50%);transition:left 0.1s ease,top 0.1s ease;left:-999px;top:-999px;animation:auraPulse 2.2s ease-in-out infinite;"></div>
+  <style>
+    @keyframes auraPulse {
+      0%,100% { transform:translate(-50%,-50%) scale(1);   opacity:0.85; }
+      50%      { transform:translate(-50%,-50%) scale(1.18); opacity:1; }
+    }
+  </style>
+
   <!-- NAV -->
   <nav>
     <div class="logo">Made<span>By</span>LA</div>
@@ -539,14 +672,14 @@
 
   <!-- HERO -->
   <div class="hero">
-    <p class="eyebrow">AI-powered creative freelancer</p>
-    <h1>Content that looks<br><em>actually premium.</em></h1>
-    <p class="hero-sub">I help brands, creators, and businesses stand out through AI-enhanced visuals, persona creation, and content that converts — crafted with the tools that matter.</p>
-    <div class="cta-row">
+    <p class="eyebrow hero-anim a1" id="scramble-el">AI-powered creative freelancer</p>
+    <h1 class="hero-anim a2 glitch" id="glitch-el" data-text="Content that looks">Content that looks<br><em id="typewriter-target">actually premium.</em><span class="typewriter-cursor" id="tw-cursor" style="display:none"></span></h1>
+    <p class="hero-sub hero-anim a3">I help brands, creators, and businesses stand out through AI-enhanced visuals, persona creation, and content that converts — crafted with the tools that matter.</p>
+    <div class="cta-row hero-anim a4">
       <a href="#services" class="btn-primary">See my services ↓</a>
       <a href="#contact" class="btn-ghost">Work with me</a>
     </div>
-    <div class="scroll-hint">
+    <div class="scroll-hint hero-anim a5">
       <span class="scroll-line"></span>
       Scroll to explore
     </div>
@@ -556,45 +689,45 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <p class="section-label">What I do</p>
+    <p class="section-label scroll-reveal">What I do</p>
     <div class="services-grid">
 
-      <div class="service-card">
+      <div class="service-card scroll-reveal delay-1">
         <p class="service-num">01</p>
         <div class="service-icon">🖼️</div>
         <p class="service-title">AI Image Enhancement & Upscaling</p>
         <p class="service-desc">Low-res to high-quality. Product photos, portraits, and brand assets made sharper, cleaner, and more professional using AI upscaling tools.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card scroll-reveal delay-2">
         <p class="service-num">02</p>
         <div class="service-icon">🤖</div>
         <p class="service-title">AI Influencer & Persona Creation</p>
         <p class="service-desc">Custom AI personas built for social media — consistent face, unique backstory, and platform-ready content pipelines from scratch.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card scroll-reveal delay-3">
         <p class="service-num">03</p>
         <div class="service-icon">✨</div>
         <p class="service-title">AI Content Creation</p>
         <p class="service-desc">Captions, scripts, threads, and copy — written with AI and refined for real engagement. Built for brands that want to sound human, not robotic.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card scroll-reveal delay-4">
         <p class="service-num">04</p>
         <div class="service-icon">🎬</div>
         <p class="service-title">Video Editing</p>
         <p class="service-desc">Reels, short-form clips, and branded videos edited in CapCut with cinematic cuts, zoom punches, speed ramps, and polished transitions.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card scroll-reveal delay-5">
         <p class="service-num">05</p>
         <div class="service-icon">📱</div>
         <p class="service-title">Social Media Management</p>
         <p class="service-desc">Strategy, scheduling, and content systems that grow your presence consistently — without burning you or your budget out.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card scroll-reveal delay-6">
         <p class="service-num">06</p>
         <div class="service-icon">🎨</div>
         <p class="service-title">Graphic Design</p>
@@ -603,7 +736,7 @@
 
     </div>
 
-    <div class="tools-row">
+    <div class="tools-row scroll-reveal delay-2">
       <span class="tool-chip">Leonardo AI</span>
       <span class="tool-chip">Midjourney</span>
       <span class="tool-chip">Kling AI</span>
@@ -618,19 +751,19 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <p class="section-label">About</p>
+    <p class="section-label scroll-reveal">About</p>
     <div class="about-grid">
-      <div>
+      <div class="scroll-reveal delay-1">
         <h2 class="about-title">A creative who actually knows how to use AI.</h2>
         <p class="about-text">I'm LA — a Filipino freelancer specializing in AI-powered creative services. From building full AI influencer personas to editing cinematic short-form videos, I bring both the technical skill and the creative eye to every project.</p>
         <p class="about-text">I work with the tools that are actually moving the industry right now — not just talking about AI, but building with it every day. Based in the Philippines, open to global clients.</p>
         <div class="stats-row">
           <div>
-            <div class="stat-num">6+</div>
+            <div class="stat-num" data-count="6" data-suffix="+">6+</div>
             <div class="stat-label">Services offered</div>
           </div>
           <div>
-            <div class="stat-num">7+</div>
+            <div class="stat-num" data-count="7" data-suffix="+">7+</div>
             <div class="stat-label">AI tools mastered</div>
           </div>
           <div>
@@ -639,7 +772,7 @@
           </div>
         </div>
       </div>
-      <div class="profile-card">
+      <div class="profile-card scroll-reveal delay-3">
         <div class="avatar">
           LA
           <div class="avatar-status"></div>
@@ -658,7 +791,7 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-box">
+    <div class="contact-box scroll-reveal">
       <h2 class="contact-title">Let's work together.</h2>
       <p class="contact-sub">Available for freelance projects. Reach out and let's talk about what you need.</p>
       <div class="contact-links">
@@ -675,5 +808,140 @@
     MadeByLA © 2026 &nbsp;·&nbsp; Built with AI, refined by hand. &nbsp;·&nbsp; Philippines
   </footer>
 
+<script>
+  // 1. PARTICLE BACKGROUND
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  function resizeCanvas() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      r: Math.random() * 2.5 + 0.8,
+      dx: (Math.random() - 0.5) * 0.35,
+      dy: (Math.random() - 0.5) * 0.35,
+      o: Math.random() * 0.6 + 0.15
+    });
+  }
+  function drawParticles() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(124,109,250,${p.o})`;
+      ctx.fill();
+      p.x += p.dx; p.y += p.dy;
+      if (p.x < 0 || p.x > W) p.dx *= -1;
+      if (p.y < 0 || p.y > H) p.dy *= -1;
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  // 2. MOUSE GLOW TRAIL
+  const glow = document.getElementById('mouse-glow');
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+
+  // 3. GLITCH on headline — triggers every 4s
+  const glitchEl = document.getElementById('glitch-el');
+  function triggerGlitch() {
+    glitchEl.classList.add('active');
+    setTimeout(() => glitchEl.classList.remove('active'), 300);
+  }
+  setTimeout(() => {
+    triggerGlitch();
+    setInterval(triggerGlitch, 4000);
+  }, 2500);
+
+  // 4. TEXT SCRAMBLE on eyebrow
+  const scrambleEl = document.getElementById('scramble-el');
+  const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*';
+  const scrambleOriginal = scrambleEl.textContent;
+  function runScramble() {
+    let iter = 0;
+    const total = 18;
+    const interval = setInterval(() => {
+      scrambleEl.textContent = scrambleOriginal.split('').map((ch, idx) => {
+        if (ch === ' ') return ' ';
+        if (idx < iter) return scrambleOriginal[idx];
+        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+      }).join('');
+      iter += 0.5;
+      if (iter >= scrambleOriginal.length) {
+        scrambleEl.textContent = scrambleOriginal;
+        clearInterval(interval);
+      }
+    }, 40);
+  }
+  setTimeout(runScramble, 300);
+
+  // 5. COUNT-UP on stats (triggers on scroll)
+  const statEls = document.querySelectorAll('.stat-num[data-count]');
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      el.classList.add('counting');
+      const step = Math.ceil(target / 20);
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current + suffix;
+        if (current >= target) {
+          clearInterval(timer);
+          el.classList.remove('counting');
+        }
+      }, 50);
+      countObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => countObserver.observe(el));
+
+  // 6. SCROLL REVEAL
+  const revealEls = document.querySelectorAll('.scroll-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // 7. TYPEWRITER
+  const target = document.getElementById('typewriter-target');
+  const twCursor = document.getElementById('tw-cursor');
+  const fullText = target.textContent;
+  setTimeout(() => {
+    target.textContent = '';
+    twCursor.style.display = 'inline-block';
+    let i = 0;
+    function type() {
+      if (i < fullText.length) {
+        target.textContent += fullText[i++];
+        setTimeout(type, 52);
+      } else {
+        setTimeout(() => {
+          twCursor.style.transition = 'opacity 0.6s';
+          twCursor.style.opacity = '0';
+          setTimeout(() => twCursor.remove(), 700);
+        }, 1500);
+      }
+    }
+    type();
+  }, 900);
+</script>
 </body>
 </html>
