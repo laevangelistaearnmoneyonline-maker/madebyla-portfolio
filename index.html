@@ -11,17 +11,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #080810;
-      --bg-card: #0e0e1a;
-      --bg-hover: #13131f;
-      --accent: #7c6dfa;
-      --accent-glow: rgba(124, 109, 250, 0.18);
-      --accent-light: #a99ff7;
+      --bg: #08080f;
+      --bg-card: #0d0d1a;
+      --bg-hover: #111122;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.18);
+      --accent-light: #93c5fd;
       --text: #eeeef5;
       --text-muted: rgba(238,238,245,0.45);
       --text-dim: rgba(238,238,245,0.2);
       --border: rgba(255,255,255,0.07);
-      --border-accent: rgba(124,109,250,0.25);
+      --border-accent: rgba(59,130,246,0.25);
     }
 
     html { scroll-behavior: smooth; }
@@ -93,7 +93,7 @@
       right: -10%;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(124,109,250,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -356,7 +356,7 @@
       transform: translateX(-50%);
       width: 180px;
       height: 180px;
-      background: radial-gradient(circle, rgba(124,109,250,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -447,7 +447,7 @@
       transform: translateX(-50%);
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, rgba(124,109,250,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -604,12 +604,17 @@
     </div>
 
     <div class="tools-row">
-      <span class="tool-chip">Leonardo AI</span>
-      <span class="tool-chip">Midjourney</span>
-      <span class="tool-chip">Kling AI</span>
-      <span class="tool-chip">Flux Pro</span>
-      <span class="tool-chip">Mystic 2.5</span>
-      <span class="tool-chip">CapCut</span>
+      
+      
+      
+      
+      
+      <span class="tool-chip">Claude AI</span>
+      <span class="tool-chip">ChatGPT</span>
+      <span class="tool-chip">Gemini</span>
+      <span class="tool-chip">MS Copilot</span>
+      <span class="tool-chip">Magnific AI</span>
+      <span class="tool-chip">CapCut Pro</span>
       <span class="tool-chip">Canva Pro</span>
     </div>
   </section>
@@ -656,6 +661,190 @@
 
   <hr class="divider">
 
+  <!-- PORTFOLIO -->
+  <section id="work">
+    <p class="section-label">Work samples</p>
+    <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">AI-powered content <em style="font-style:normal;color:var(--accent-light);">in action.</em></h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:2.5rem;max-width:500px;">Real projects made using AI tools — from video editing to branded content creation.</p>
+
+    <div class="portfolio-grid">
+
+      <!-- VIDEO CARD -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-video-wrap">
+          <video
+            src="assets/Ghost%20Figther%20Leche%20Flan%20Edition.mp4"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            id="vid1"
+          ></video>
+          <div class="portfolio-play" onclick="toggleVideo('vid1', this)">
+            <span class="play-icon">▶</span>
+          </div>
+          <div class="portfolio-badge">Video Editing · AI Content</div>
+        </div>
+        <div class="portfolio-info">
+          <p class="portfolio-title">Ghost Fighter — Leche Flan Edition</p>
+          <p class="portfolio-desc">AI-powered parody video edit for Taguro Leche Flan. Anime-style branding meets Filipino food content.</p>
+          <div class="portfolio-tags">
+            <span>CapCut Pro</span>
+            <span>AI Content</span>
+            <span>Branding</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="font-size:12px;color:var(--text-dim);margin-top:2rem;font-family:'Space Mono',monospace;">More projects coming soon.</p>
+  </section>
+
+  <style>
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .portfolio-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+
+    .portfolio-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .portfolio-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.45);
+      transition: background 0.2s;
+    }
+
+    .portfolio-play:hover { background: rgba(0,0,0,0.3); }
+
+    .portfolio-play.playing { background: transparent; }
+    .portfolio-play.playing:hover { background: rgba(0,0,0,0.2); }
+
+    .play-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .portfolio-play.playing .play-icon { opacity: 0; }
+    .portfolio-play.playing:hover .play-icon { opacity: 1; }
+
+    .portfolio-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 10px;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(59,130,246,0.15);
+      border: 0.5px solid rgba(59,130,246,0.3);
+      color: var(--accent-light);
+    }
+
+    .portfolio-info { padding: 1.25rem 1.5rem 1.5rem; }
+
+    .portfolio-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .portfolio-tags span {
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 0.5px solid var(--border);
+      color: var(--text-dim);
+    }
+  </style>
+
+  <script>
+    function toggleVideo(id, btn) {
+      const vid = document.getElementById(id);
+      if (vid.paused) {
+        vid.play();
+        btn.classList.add('playing');
+      } else {
+        vid.pause();
+        btn.classList.remove('playing');
+      }
+    }
+
+    /* Auto-play on scroll into view */
+    const vids = document.querySelectorAll('.portfolio-video-wrap video');
+    vids.forEach(vid => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          const btn = vid.nextElementSibling;
+          if (e.isIntersecting) {
+            vid.play().then(() => btn.classList.add('playing')).catch(() => {});
+          } else {
+            vid.pause();
+            btn.classList.remove('playing');
+          }
+        });
+      }, { threshold: 0.5 }).observe(vid);
+    });
+  </script>
+
+  <hr class="divider">
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-box">
@@ -677,3 +866,149 @@
 
 </body>
 </html>
+
+  <!-- PARTICLE CANVAS -->
+  <canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.5;"></canvas>
+
+  <style>
+    nav, .hero, section, footer, hr.divider { position: relative; z-index: 1; }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal:nth-child(1) { transition-delay: 0.05s; }
+    .reveal:nth-child(2) { transition-delay: 0.15s; }
+    .reveal:nth-child(3) { transition-delay: 0.25s; }
+    .reveal:nth-child(4) { transition-delay: 0.35s; }
+    .reveal:nth-child(5) { transition-delay: 0.45s; }
+    .reveal:nth-child(6) { transition-delay: 0.55s; }
+
+    .typewriter::after { content: '|'; animation: blink 0.8s infinite; color: var(--accent); }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    @keyframes glitch {
+      0% { text-shadow: none; transform: translate(0); }
+      10% { text-shadow: -2px 0 #3b82f6, 2px 0 #93c5fd; transform: translate(-1px, 0); }
+      20% { text-shadow: 2px 0 #3b82f6, -2px 0 #93c5fd; transform: translate(1px, 0); }
+      30% { text-shadow: none; transform: translate(0); }
+    }
+    .logo:hover { animation: glitch 0.4s ease; }
+
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+    .avatar { animation: float 4s ease-in-out infinite; }
+
+    nav.scrolled { background: rgba(8,8,15,0.98) !important; box-shadow: 0 1px 20px rgba(59,130,246,0.08); }
+
+    #progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(to right, #3b82f6, #93c5fd); z-index: 9999; width: 0%; transition: width 0.1s linear; }
+
+    .tool-chip { transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+    .tool-chip:hover { border-color: rgba(59,130,246,0.6); color: #93c5fd; transform: translateY(-2px); }
+
+    @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: pageFadeIn 0.8s ease forwards; }
+  </style>
+
+  <div id="progress-bar"></div>
+
+  <script>
+    /* PARTICLES */
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = window.innerWidth;
+    let H = canvas.height = window.innerHeight;
+    const particles = Array.from({length: 80}, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 2.5 + 0.8,
+      dx: (Math.random() - 0.5) * 0.4, dy: (Math.random() - 0.5) * 0.4,
+      alpha: Math.random() * 0.6 + 0.1
+    }));
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(59,130,246,${p.alpha})`; ctx.fill();
+        p.x += p.dx; p.y += p.dy;
+        if (p.x < 0 || p.x > W) p.dx *= -1;
+        if (p.y < 0 || p.y > H) p.dy *= -1;
+      });
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+          if (dist < 100) {
+            ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(59,130,246,${0.08 * (1 - dist/100)})`; ctx.lineWidth = 0.5; ctx.stroke();
+          }
+        }
+      }
+        /* BIG GLOWING ORB */
+      const time = Date.now() * 0.0008;
+      const orbX = W * 0.75 + Math.cos(time) * 120;
+      const orbY = H * 0.35 + Math.sin(time * 0.7) * 80;
+      const grad = ctx.createRadialGradient(orbX, orbY, 0, orbX, orbY, 180);
+      grad.addColorStop(0, "rgba(59,130,246,0.18)");
+      grad.addColorStop(0.4, "rgba(59,130,246,0.07)");
+      grad.addColorStop(1, "rgba(59,130,246,0)");
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, 180, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      const orbX2 = W * 0.15 + Math.cos(time * 0.6 + 2) * 90;
+      const orbY2 = H * 0.65 + Math.sin(time * 0.5) * 70;
+      const grad2 = ctx.createRadialGradient(orbX2, orbY2, 0, orbX2, orbY2, 130);
+      grad2.addColorStop(0, "rgba(147,197,253,0.12)");
+      grad2.addColorStop(0.5, "rgba(59,130,246,0.05)");
+      grad2.addColorStop(1, "rgba(59,130,246,0)");
+      ctx.beginPath();
+      ctx.arc(orbX2, orbY2, 130, 0, Math.PI * 2);
+      ctx.fillStyle = grad2;
+      ctx.fill();
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+    window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
+
+    /* SCROLL REVEAL */
+    document.querySelectorAll('.service-card, .about-grid, .contact-box, .tools-row, .stats-row').forEach(el => {
+      el.classList.add('reveal');
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 }).observe(el);
+    });
+
+    /* TYPEWRITER */
+    const em = document.querySelector('h1 em');
+    if (em) {
+      const text = em.textContent; em.textContent = ''; em.classList.add('typewriter');
+      let i = 0;
+      const type = () => { if (i < text.length) { em.textContent += text[i++]; setTimeout(type, 80); } else em.classList.remove('typewriter'); };
+      setTimeout(type, 800);
+    }
+
+    /* NAV SCROLL */
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+    /* PROGRESS BAR */
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+
+    /* COUNTER ANIMATION */
+    document.querySelectorAll('.stat-num').forEach(el => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const num = parseInt(el.textContent);
+            const suffix = el.textContent.replace(num.toString(), '');
+            if (!isNaN(num)) {
+              let s = 0; const step = num / 75;
+              const t = setInterval(() => { s = Math.min(s + step, num); el.textContent = Math.floor(s) + suffix; if (s >= num) clearInterval(t); }, 16);
+            }
+          }
+        });
+      }, { threshold: 0.5 }).observe(el);
+    });
+  </script>
