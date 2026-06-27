@@ -661,6 +661,190 @@
 
   <hr class="divider">
 
+  <!-- PORTFOLIO -->
+  <section id="work">
+    <p class="section-label">Work samples</p>
+    <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">AI-powered content <em style="font-style:normal;color:var(--accent-light);">in action.</em></h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:2.5rem;max-width:500px;">Real projects made using AI tools — from video editing to branded content creation.</p>
+
+    <div class="portfolio-grid">
+
+      <!-- VIDEO CARD -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-video-wrap">
+          <video
+            src="assets/Ghost%20Figther%20Leche%20Flan%20Edition.mp4"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            id="vid1"
+          ></video>
+          <div class="portfolio-play" onclick="toggleVideo('vid1', this)">
+            <span class="play-icon">▶</span>
+          </div>
+          <div class="portfolio-badge">Video Editing · AI Content</div>
+        </div>
+        <div class="portfolio-info">
+          <p class="portfolio-title">Ghost Fighter — Leche Flan Edition</p>
+          <p class="portfolio-desc">AI-powered parody video edit for Taguro Leche Flan. Anime-style branding meets Filipino food content.</p>
+          <div class="portfolio-tags">
+            <span>CapCut Pro</span>
+            <span>AI Content</span>
+            <span>Branding</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="font-size:12px;color:var(--text-dim);margin-top:2rem;font-family:'Space Mono',monospace;">More projects coming soon.</p>
+  </section>
+
+  <style>
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .portfolio-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .portfolio-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+
+    .portfolio-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .portfolio-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.45);
+      transition: background 0.2s;
+    }
+
+    .portfolio-play:hover { background: rgba(0,0,0,0.3); }
+
+    .portfolio-play.playing { background: transparent; }
+    .portfolio-play.playing:hover { background: rgba(0,0,0,0.2); }
+
+    .play-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .portfolio-play.playing .play-icon { opacity: 0; }
+    .portfolio-play.playing:hover .play-icon { opacity: 1; }
+
+    .portfolio-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 10px;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(59,130,246,0.15);
+      border: 0.5px solid rgba(59,130,246,0.3);
+      color: var(--accent-light);
+    }
+
+    .portfolio-info { padding: 1.25rem 1.5rem 1.5rem; }
+
+    .portfolio-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .portfolio-tags span {
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 0.5px solid var(--border);
+      color: var(--text-dim);
+    }
+  </style>
+
+  <script>
+    function toggleVideo(id, btn) {
+      const vid = document.getElementById(id);
+      if (vid.paused) {
+        vid.play();
+        btn.classList.add('playing');
+      } else {
+        vid.pause();
+        btn.classList.remove('playing');
+      }
+    }
+
+    /* Auto-play on scroll into view */
+    const vids = document.querySelectorAll('.portfolio-video-wrap video');
+    vids.forEach(vid => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          const btn = vid.nextElementSibling;
+          if (e.isIntersecting) {
+            vid.play().then(() => btn.classList.add('playing')).catch(() => {});
+          } else {
+            vid.pause();
+            btn.classList.remove('playing');
+          }
+        });
+      }, { threshold: 0.5 }).observe(vid);
+    });
+  </script>
+
+  <hr class="divider">
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-box">
