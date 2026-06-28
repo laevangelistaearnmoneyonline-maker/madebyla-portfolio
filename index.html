@@ -167,6 +167,7 @@
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -310,17 +311,186 @@
 
   <hr class="divider">
 
+  <!-- HOW I WORK -->
+  <section id="process">
+    <p class="section-label">How it works</p>
+    <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">Simple process. <em style="font-style:normal;color:var(--accent-light);">Real results.</em></h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:3rem;max-width:500px;">Working with me is straightforward. Here's what to expect from start to finish.</p>
+
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="process-num">01</div>
+        <div class="process-icon">💬</div>
+        <h3 class="process-title">Discuss</h3>
+        <p class="process-desc">Tell me about your project — what you need, your brand, your goals, and your timeline. No complicated forms. Just a simple conversation.</p>
+      </div>
+      <div class="process-connector">→</div>
+      <div class="process-card reveal">
+        <div class="process-num">02</div>
+        <div class="process-icon">⚡</div>
+        <h3 class="process-title">Create</h3>
+        <p class="process-desc">I get to work using the best AI tools available — producing premium content, visuals, or videos tailored specifically to your brand and audience.</p>
+      </div>
+      <div class="process-connector">→</div>
+      <div class="process-card reveal">
+        <div class="process-num">03</div>
+        <div class="process-icon">🎯</div>
+        <h3 class="process-title">Deliver</h3>
+        <p class="process-desc">You receive your completed work, ready to publish or use. Revisions are always welcome — your satisfaction is the priority.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .process-grid {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .process-card {
+      flex: 1;
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .process-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+    .process-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+    .process-icon { font-size: 28px; margin-bottom: 1rem; }
+    .process-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+    .process-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); }
+    .process-connector {
+      font-size: 24px;
+      color: var(--border-accent);
+      flex-shrink: 0;
+      font-family: 'Space Mono', monospace;
+    }
+    @media (max-width: 768px) {
+      .process-grid { flex-direction: column; }
+      .process-connector { transform: rotate(90deg); }
+    }
+  </style>
+
+  <hr class="divider">
+
   <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-box reveal">
-      <h2 class="contact-title">Let's work together.</h2>
-      <p class="contact-sub">Available for freelance projects. Reach out and let's talk about what you need.</p>
-      <div class="contact-links">
-        <a href="mailto:albertoevangelistaiii@gmail.com" class="contact-chip">📧 Email me</a>
-        <a href="#" class="contact-chip">💼 Fiverr</a>
-        <a href="#" class="contact-chip">🌐 Upwork</a>
-        <a href="#" class="contact-chip">📸 Instagram</a>
-        <a href="#" class="contact-chip">👍 Facebook</a>
+    <p class="section-label">Get in touch</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+
+      <!-- Left side -->
+      <div>
+        <h2 style="font-size:32px;font-weight:600;line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em;">Let's work <em style="font-style:normal;color:var(--accent-light);">together.</em></h2>
+        <p style="font-size:14px;line-height:1.8;color:var(--text-muted);margin-bottom:2rem;">Have a project in mind? Fill out the form and I'll get back to you within 24 hours. Let's create something premium.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <a href="mailto:laventuresofficialph@gmail.com" class="contact-chip" style="justify-content:flex-start;width:fit-content;">📧 laventuresofficialph@gmail.com</a>
+          <a href="https://linkedin.com/in/madebyla" target="_blank" class="contact-chip" style="justify-content:flex-start;width:fit-content;">💼 linkedin.com/in/madebyla</a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-box reveal">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none;"><input name="bot-field" /></p>
+
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-input" placeholder="John Smith" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-input" placeholder="john@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Service Needed</label>
+            <select name="service" class="form-input">
+              <option value="">Select a service...</option>
+              <option>AI Image Enhancement & Upscaling</option>
+              <option>AI Influencer & Persona Creation</option>
+              <option>AI Content Creation</option>
+              <option>Video Editing</option>
+              <option>Social Media Management</option>
+              <option>Graphic Design</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tell me about your project</label>
+            <textarea name="message" class="form-input form-textarea" placeholder="Describe what you need..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" id="submit-btn">
+            Send Message →
+          </button>
+          <p id="form-success" style="display:none;color:#4ade80;font-size:13px;margin-top:1rem;text-align:center;font-family:'Space Mono',monospace;">Message sent! I'll get back to you within 24 hours.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: 12px; font-family: 'Space Mono', monospace; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .form-input {
+      width: 100%;
+      background: #0a0a18;
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--text);
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .form-input:focus { outline: none; border-color: var(--accent); }
+    .form-input option { background: #0a0a18; }
+    .form-textarea { min-height: 120px; resize: vertical; }
+    @media (max-width: 768px) {
+      #contact > div { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    }
+  </style>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const success = document.getElementById('form-success');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(e.target)).toString()
+      }).then(() => {
+        btn.style.display = 'none';
+        success.style.display = 'block';
+        e.target.reset();
+      }).catch(() => {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+      });
+    }
+  </script>
+
+  <div style="max-width:1000px;margin:0 auto;padding:0 3rem 4rem;display:flex;gap:1rem;flex-wrap:wrap;">
+    <a href="#" class="contact-chip">📸 Instagram</a>
+    <a href="#" class="contact-chip">👍 Facebook</a>
       </div>
     </div>
   </section>
