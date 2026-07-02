@@ -3,7 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MadeByLA — AI Creative Freelancer</title>
+  <title>MadeByLA — AI Creative Freelancer Philippines</title>
+  <meta name="description" content="MadeByLA is a Filipino AI Creative Freelancer specializing in AI Image Enhancement, AI Persona Creation, Content Creation, Video Editing, Social Media Management, and Graphic Design. Based in the Philippines, serving global clients." />
+  <meta name="keywords" content="AI freelancer Philippines, AI content creator Philippines, AI image enhancement, AI influencer creator, video editor Philippines, social media manager Philippines, graphic designer Philippines, hire AI freelancer, Filipino freelancer, MadeByLA" />
+  <meta name="author" content="L.A. Evangelista — MadeByLA" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://madebyla.netlify.app" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://madebyla.netlify.app" />
+  <meta property="og:title" content="MadeByLA — AI Creative Freelancer Philippines" />
+  <meta property="og:description" content="AI-powered creative services — content creation, video editing, AI persona development & more. Based in Philippines, serving global clients." />
+  <meta property="og:image" content="https://madebyla.netlify.app/assets/thumbnail.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://madebyla.netlify.app" />
+  <meta name="twitter:title" content="MadeByLA — AI Creative Freelancer Philippines" />
+  <meta name="twitter:description" content="AI-powered creative services — content creation, video editing, AI persona development & more. Based in Philippines, serving global clients." />
+  <meta name="twitter:image" content="https://madebyla.netlify.app/assets/thumbnail.png" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "L.A. Evangelista",
+    "alternateName": "MadeByLA",
+    "description": "Filipino AI Creative Freelancer specializing in AI content creation, video editing, AI persona development, and social media management.",
+    "url": "https://madebyla.netlify.app",
+    "sameAs": [
+      "https://linkedin.com/in/madebyla"
+    ],
+    "jobTitle": "AI Creative Freelancer",
+    "knowsAbout": ["AI Content Creation", "AI Image Enhancement", "Video Editing", "Social Media Management", "Graphic Design", "AI Persona Creation"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PH",
+      "addressLocality": "Bacoor",
+      "addressRegion": "Cavite"
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "AI Creative Freelance Services",
+      "url": "https://madebyla.netlify.app/#services"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -42,7 +90,6 @@
     .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
 
-    /* PROGRESS BAR */
     #progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(to right, #3b82f6, #93c5fd); z-index: 9999; width: 0%; transition: width 0.1s linear; }
 
     /* HERO */
@@ -69,7 +116,7 @@
     .section-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 3rem; display: flex; align-items: center; gap: 12px; }
     .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
 
-    /* SCROLL REVEAL */
+    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal:nth-child(1) { transition-delay: 0.05s; }
@@ -94,24 +141,6 @@
     .tool-chip { font-family: 'Space Mono', monospace; font-size: 11px; padding: 6px 14px; border: 0.5px solid var(--border-accent); border-radius: 100px; color: var(--accent-light); background: var(--accent-glow); letter-spacing: 0.03em; transition: border-color 0.2s, color 0.2s, transform 0.2s; }
     .tool-chip:hover { border-color: rgba(59,130,246,0.6); color: #93c5fd; transform: translateY(-2px); }
 
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .about-title { font-size: 30px; font-weight: 600; line-height: 1.25; margin-bottom: 1.25rem; letter-spacing: -0.01em; }
-    .about-text { font-size: 14px; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.25rem; }
-    .stats-row { display: flex; gap: 2.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
-    .stat-num { font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; color: var(--accent-light); line-height: 1; }
-    .stat-label { font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: 0.03em; }
-    .profile-card { background: var(--bg-card); border: 0.5px solid var(--border-accent); border-radius: 14px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; }
-    .profile-card::before { content: ''; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 180px; height: 180px; background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%); pointer-events: none; }
-    .avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--accent-glow); border: 1.5px solid var(--border-accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; color: var(--accent-light); position: relative; animation: float 4s ease-in-out infinite; }
-    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-    .avatar-status { position: absolute; bottom: 3px; right: 3px; width: 12px; height: 12px; border-radius: 50%; background: #4ade80; border: 2px solid var(--bg-card); }
-    .profile-name { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-    .profile-role { font-size: 12px; color: var(--text-muted); margin-bottom: 1.5rem; }
-    .available-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-family: 'Space Mono', monospace; color: #4ade80; background: rgba(74,222,128,0.08); border: 0.5px solid rgba(74,222,128,0.2); padding: 5px 12px; border-radius: 100px; margin-bottom: 1.5rem; }
-    .available-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
     /* PORTFOLIO */
     .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
     .portfolio-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
@@ -122,7 +151,7 @@
     .portfolio-play:hover { background: rgba(0,0,0,0.3); }
     .portfolio-play.playing { background: transparent; }
     .portfolio-play.playing:hover { background: rgba(0,0,0,0.2); }
-    .play-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; transition: transform 0.2s, opacity 0.2s; }
+    .play-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; transition: opacity 0.2s; }
     .portfolio-play.playing .play-icon { opacity: 0; }
     .portfolio-play.playing:hover .play-icon { opacity: 1; }
     .portfolio-badge { position: absolute; top: 12px; left: 12px; font-size: 10px; font-family: 'Space Mono', monospace; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 4px; background: rgba(59,130,246,0.15); border: 0.5px solid rgba(59,130,246,0.3); color: var(--accent-light); }
@@ -132,14 +161,44 @@
     .portfolio-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .portfolio-tags span { font-size: 11px; font-family: 'Space Mono', monospace; padding: 3px 10px; border-radius: 4px; border: 0.5px solid var(--border); color: var(--text-dim); }
 
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .about-title { font-size: 30px; font-weight: 600; line-height: 1.25; margin-bottom: 1.25rem; letter-spacing: -0.01em; }
+    .about-text { font-size: 14px; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .stats-row { display: flex; gap: 2.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
+    .stat-num { font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; color: var(--accent-light); line-height: 1; }
+    .stat-label { font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: 0.03em; }
+    .profile-card { background: var(--bg-card); border: 0.5px solid var(--border-accent); border-radius: 14px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; }
+    .avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--accent-glow); border: 1.5px solid var(--border-accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; color: var(--accent-light); position: relative; animation: float 4s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+    .avatar-status { position: absolute; bottom: 3px; right: 3px; width: 12px; height: 12px; border-radius: 50%; background: #4ade80; border: 2px solid var(--bg-card); }
+    .profile-name { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .profile-role { font-size: 12px; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .available-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-family: 'Space Mono', monospace; color: #4ade80; background: rgba(74,222,128,0.08); border: 0.5px solid rgba(74,222,128,0.2); padding: 5px 12px; border-radius: 100px; }
+    .available-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* PROCESS */
+    .process-grid { display: flex; align-items: center; gap: 1rem; }
+    .process-card { flex: 1; background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 14px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
+    .process-card:hover { border-color: var(--border-accent); transform: translateY(-4px); }
+    .process-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .process-icon { font-size: 28px; margin-bottom: 1rem; }
+    .process-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
+    .process-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); }
+    .process-connector { font-size: 24px; color: var(--border-accent); flex-shrink: 0; font-family: 'Space Mono', monospace; }
+
     /* CONTACT */
-    .contact-box { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 14px; padding: 4rem 3rem; text-align: center; position: relative; overflow: hidden; }
-    .contact-box::before { content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 300px; height: 300px; background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%); pointer-events: none; }
-    .contact-title { font-size: 36px; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
-    .contact-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 3rem; max-width: 400px; margin-left: auto; margin-right: auto; }
-    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-box { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 14px; padding: 2.5rem; }
     .contact-chip { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border: 0.5px solid var(--border); border-radius: 8px; font-size: 13px; font-family: 'Space Grotesk', sans-serif; color: var(--text-muted); text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; background: transparent; }
     .contact-chip:hover { border-color: var(--accent); color: var(--accent-light); background: var(--accent-glow); }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: 12px; font-family: 'Space Mono', monospace; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .form-input { width: 100%; background: #0a0a18; border: 0.5px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 14px; font-family: 'Space Grotesk', sans-serif; color: var(--text); transition: border-color 0.2s; box-sizing: border-box; }
+    .form-input:focus { outline: none; border-color: var(--accent); }
+    .form-input option { background: #0a0a18; }
+    .form-textarea { min-height: 120px; resize: vertical; }
 
     /* FOOTER */
     footer { text-align: center; padding: 2.5rem 3rem; border-top: 0.5px solid var(--border); font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
@@ -151,29 +210,29 @@
       .hero { padding: 7rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .contact-box { padding: 3rem 1.5rem; }
+      .process-grid { flex-direction: column; }
+      .process-connector { transform: rotate(90deg); }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- PARTICLE CANVAS -->
   <canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.5;"></canvas>
   <div id="progress-bar"></div>
 
-  <!-- NAV -->
   <nav id="mainNav">
     <div class="logo">Made<span>By</span>LA</div>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#why">Why Me</a></li>
       <li><a href="#process">Process</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <p class="eyebrow">AI-powered creative freelancer</p>
     <h1>Content that looks<br><em>actually premium.</em></h1>
@@ -182,54 +241,20 @@
       <a href="#services" class="btn-primary">See my services ↓</a>
       <a href="#contact" class="btn-ghost">Work with me</a>
     </div>
-    <div class="scroll-hint">
-      <span class="scroll-line"></span>
-      Scroll to explore
-    </div>
+    <div class="scroll-hint"><span class="scroll-line"></span>Scroll to explore</div>
   </div>
 
   <hr class="divider">
 
-  <!-- SERVICES -->
   <section id="services">
     <p class="section-label">What I do</p>
     <div class="services-grid">
-      <div class="service-card reveal">
-        <p class="service-num">01</p>
-        <div class="service-icon">🖼️</div>
-        <p class="service-title">AI Image Enhancement & Upscaling</p>
-        <p class="service-desc">Low-res to high-quality. Product photos, portraits, and brand assets made sharper, cleaner, and more professional using AI upscaling tools.</p>
-      </div>
-      <div class="service-card reveal">
-        <p class="service-num">02</p>
-        <div class="service-icon">🤖</div>
-        <p class="service-title">AI Influencer & Persona Creation</p>
-        <p class="service-desc">Custom AI personas built for social media — consistent face, unique backstory, and platform-ready content pipelines from scratch.</p>
-      </div>
-      <div class="service-card reveal">
-        <p class="service-num">03</p>
-        <div class="service-icon">✨</div>
-        <p class="service-title">AI Content Creation</p>
-        <p class="service-desc">Captions, scripts, threads, and copy — written with AI and refined for real engagement. Built for brands that want to sound human, not robotic.</p>
-      </div>
-      <div class="service-card reveal">
-        <p class="service-num">04</p>
-        <div class="service-icon">🎬</div>
-        <p class="service-title">Video Editing</p>
-        <p class="service-desc">Reels, short-form clips, and branded videos edited in CapCut with cinematic cuts, zoom punches, speed ramps, and polished transitions.</p>
-      </div>
-      <div class="service-card reveal">
-        <p class="service-num">05</p>
-        <div class="service-icon">📱</div>
-        <p class="service-title">Social Media Management</p>
-        <p class="service-desc">Strategy, scheduling, and content systems that grow your presence consistently — without burning you or your budget out.</p>
-      </div>
-      <div class="service-card reveal">
-        <p class="service-num">06</p>
-        <div class="service-icon">🎨</div>
-        <p class="service-title">Graphic Design</p>
-        <p class="service-desc">Canva-based visuals — social posts, brand kits, pitch decks, and marketing materials. Fast turnaround, polished output.</p>
-      </div>
+      <div class="service-card reveal"><p class="service-num">01</p><div class="service-icon">🖼️</div><p class="service-title">AI Image Enhancement & Upscaling</p><p class="service-desc">Low-res to high-quality. Product photos, portraits, and brand assets made sharper, cleaner, and more professional using AI upscaling tools.</p></div>
+      <div class="service-card reveal"><p class="service-num">02</p><div class="service-icon">🤖</div><p class="service-title">AI Influencer & Persona Creation</p><p class="service-desc">Custom AI personas built for social media — consistent face, unique backstory, and platform-ready content pipelines from scratch.</p></div>
+      <div class="service-card reveal"><p class="service-num">03</p><div class="service-icon">✨</div><p class="service-title">AI Content Creation</p><p class="service-desc">Captions, scripts, threads, and copy — written with AI and refined for real engagement. Built for brands that want to sound human, not robotic.</p></div>
+      <div class="service-card reveal"><p class="service-num">04</p><div class="service-icon">🎬</div><p class="service-title">Video Editing</p><p class="service-desc">Reels, short-form clips, and branded videos edited in CapCut with cinematic cuts, zoom punches, speed ramps, and polished transitions.</p></div>
+      <div class="service-card reveal"><p class="service-num">05</p><div class="service-icon">📱</div><p class="service-title">Social Media Management</p><p class="service-desc">Strategy, scheduling, and content systems that grow your presence consistently — without burning you or your budget out.</p></div>
+      <div class="service-card reveal"><p class="service-num">06</p><div class="service-icon">🎨</div><p class="service-title">Graphic Design</p><p class="service-desc">Canva-based visuals — social posts, brand kits, pitch decks, and marketing materials. Fast turnaround, polished output.</p></div>
     </div>
     <div class="tools-row reveal">
       <span class="tool-chip">Claude AI</span>
@@ -244,7 +269,6 @@
 
   <hr class="divider">
 
-  <!-- PORTFOLIO -->
   <section id="work">
     <p class="section-label">Work samples</p>
     <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">AI-powered content <em style="font-style:normal;color:var(--accent-light);">in action.</em></h2>
@@ -252,20 +276,14 @@
     <div class="portfolio-grid">
       <div class="portfolio-card reveal">
         <div class="portfolio-video-wrap">
-          <video src="assets/sample1.mp4" muted loop playsinline preload="metadata" id="vid1"></video>
-          <div class="portfolio-play" onclick="toggleVideo('vid1', this)">
-            <span class="play-icon">▶</span>
-          </div>
+          <video src="assets/Ghost%20Figther%20Leche%20Flan%20Edition.mp4" muted loop playsinline preload="metadata" id="vid1"></video>
+          <div class="portfolio-play" onclick="toggleVideo('vid1', this)"><span class="play-icon">▶</span></div>
           <div class="portfolio-badge">Video Editing · AI Content</div>
         </div>
         <div class="portfolio-info">
           <p class="portfolio-title">Ghost Fighter — Leche Flan Edition</p>
           <p class="portfolio-desc">AI-powered parody video edit for Taguro Leche Flan. Anime-style branding meets Filipino food content.</p>
-          <div class="portfolio-tags">
-            <span>CapCut Pro</span>
-            <span>AI Content</span>
-            <span>Branding</span>
-          </div>
+          <div class="portfolio-tags"><span>CapCut Pro</span><span>AI Content</span><span>Branding</span></div>
         </div>
       </div>
     </div>
@@ -274,7 +292,6 @@
 
   <hr class="divider">
 
-  <!-- ABOUT -->
   <section id="about">
     <p class="section-label">About</p>
     <div class="about-grid reveal">
@@ -283,40 +300,76 @@
         <p class="about-text">I'm LA — a Filipino freelancer specializing in AI-powered creative services. From building full AI influencer personas to editing cinematic short-form videos, I bring both the technical skill and the creative eye to every project.</p>
         <p class="about-text">I work with the tools that are actually moving the industry right now — not just talking about AI, but building with it every day. Based in the Philippines, open to global clients.</p>
         <div class="stats-row">
-          <div>
-            <div class="stat-num">6+</div>
-            <div class="stat-label">Services offered</div>
-          </div>
-          <div>
-            <div class="stat-num">7+</div>
-            <div class="stat-label">AI tools mastered</div>
-          </div>
-          <div>
-            <div class="stat-num">PH</div>
-            <div class="stat-label">Based, global ready</div>
-          </div>
+          <div><div class="stat-num">6+</div><div class="stat-label">Services offered</div></div>
+          <div><div class="stat-num">7+</div><div class="stat-label">AI tools mastered</div></div>
+          <div><div class="stat-num">PH</div><div class="stat-label">Based, global ready</div></div>
         </div>
       </div>
       <div class="profile-card">
         <div class="avatar">LA<div class="avatar-status"></div></div>
         <p class="profile-name">L.A. Evangelista</p>
         <p class="profile-role">AI Creative Freelancer · Philippines</p>
-        <div class="available-badge">
-          <span class="available-dot"></span>
-          Available for projects
-        </div>
+        <div class="available-badge"><span class="available-dot"></span>Available for projects</div>
       </div>
     </div>
   </section>
 
   <hr class="divider">
 
-  <!-- HOW I WORK -->
+  <!-- WHY CHOOSE ME -->
+  <section id="why">
+    <p class="section-label">Why choose me</p>
+    <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">Not just another <em style="font-style:normal;color:var(--accent-light);">freelancer.</em></h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:3rem;max-width:500px;">Here's what makes working with MadeByLA different from the rest.</p>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🤖</div>
+        <h3 class="why-title">AI-First Approach</h3>
+        <p class="why-desc">I don't just use AI as a gimmick — it's built into every step of my workflow. That means faster delivery, higher quality, and better results at a fraction of the cost.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">⚡</div>
+        <h3 class="why-title">Fast Turnaround</h3>
+        <p class="why-desc">AI-powered workflow means I can deliver what traditional freelancers take days to do — in hours. No long waiting times, no back-and-forth delays.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">💰</div>
+        <h3 class="why-title">Premium Quality, Honest Rates</h3>
+        <p class="why-desc">Based in the Philippines, I offer world-class creative output at rates that make sense for your budget — without sacrificing quality.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🎯</div>
+        <h3 class="why-title">Results-Focused</h3>
+        <p class="why-desc">Every piece of content I create has a purpose — to attract, engage, or convert. I don't just make things look good. I make things that work.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🔄</div>
+        <h3 class="why-title">Revisions Welcome</h3>
+        <p class="why-desc">Your satisfaction is the priority. If something doesn't feel right, I'll work with you until it does — no questions asked.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🌐</div>
+        <h3 class="why-title">Global Ready</h3>
+        <p class="why-desc">Fluent in English, experienced working with international clients, and comfortable with remote collaboration tools. Wherever you are, I've got you covered.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .why-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 14px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
+    .why-card:hover { border-color: var(--border-accent); transform: translateY(-4px); }
+    .why-icon { font-size: 28px; margin-bottom: 1rem; }
+    .why-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 0.6rem; }
+    .why-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); }
+  </style>
+
+  <hr class="divider">
+
   <section id="process">
     <p class="section-label">How it works</p>
     <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">Simple process. <em style="font-style:normal;color:var(--accent-light);">Real results.</em></h2>
     <p style="font-size:14px;color:var(--text-muted);margin-bottom:3rem;max-width:500px;">Working with me is straightforward. Here's what to expect from start to finish.</p>
-
     <div class="process-grid">
       <div class="process-card reveal">
         <div class="process-num">01</div>
@@ -341,79 +394,161 @@
     </div>
   </section>
 
+  <hr class="divider">
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <p class="section-label">Testimonials</p>
+    <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">What clients <em style="font-style:normal;color:var(--accent-light);">are saying.</em></h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:3rem;max-width:500px;">Currently accepting first clients — testimonials coming soon. Be one of the first to work with MadeByLA.</p>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Testimonial coming soon. Be one of the first clients to work with MadeByLA and share your experience."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">?</div>
+          <div>
+            <p class="testi-name">Your name here</p>
+            <p class="testi-role">First client · MadeByLA</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Spots are open! Reach out today and let's create something premium together."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">?</div>
+          <div>
+            <p class="testi-name">Your name here</p>
+            <p class="testi-role">First client · MadeByLA</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Working with an AI-powered freelancer was a game changer for our brand content."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">?</div>
+          <div>
+            <p class="testi-name">Your name here</p>
+            <p class="testi-role">First client · MadeByLA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <style>
-    .process-grid {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .process-card {
-      flex: 1;
-      background: var(--bg-card);
-      border: 0.5px solid var(--border);
-      border-radius: 14px;
-      padding: 2rem;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .process-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-4px);
-    }
-    .process-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      letter-spacing: 0.1em;
-    }
-    .process-icon { font-size: 28px; margin-bottom: 1rem; }
-    .process-title { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; }
-    .process-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); }
-    .process-connector {
-      font-size: 24px;
-      color: var(--border-accent);
-      flex-shrink: 0;
-      font-family: 'Space Mono', monospace;
-    }
-    @media (max-width: 768px) {
-      .process-grid { flex-direction: column; }
-      .process-connector { transform: rotate(90deg); }
-    }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .testi-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 14px; padding: 2rem; transition: border-color 0.3s; }
+    .testi-card:hover { border-color: var(--border-accent); }
+    .testi-stars { color: #fbbf24; font-size: 14px; margin-bottom: 1rem; letter-spacing: 2px; }
+    .testi-text { font-size: 13px; line-height: 1.75; color: var(--text-muted); margin-bottom: 1.5rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent-glow); border: 0.5px solid var(--border-accent); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--accent-light); font-family: 'Space Mono', monospace; flex-shrink: 0; }
+    .testi-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .testi-role { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
   </style>
 
   <hr class="divider">
 
-  <!-- CONTACT -->
+  <!-- FAQ -->
+  <section id="faq">
+    <p class="section-label">FAQ</p>
+    <h2 style="font-size:28px;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">Common <em style="font-style:normal;color:var(--accent-light);">questions.</em></h2>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:3rem;max-width:500px;">Everything you need to know before working with MadeByLA.</p>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How long does a typical project take?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">It depends on the scope. Simple tasks like image enhancement or caption writing can be done within 24 hours. Larger projects like AI persona creation or social media packages typically take 3-5 business days. I always give a clear timeline before starting.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How do we communicate during the project?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">We can communicate through email, LinkedIn, or whatever platform works best for you. I'm responsive and will keep you updated throughout the entire process.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Do you offer revisions?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Yes — revisions are always welcome. Your satisfaction is the priority. If something doesn't feel right, I'll work with you until it does.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>What payment methods do you accept?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">For international clients — PayPal, Wise, and Fiverr platform payment. For local Philippine clients — GCash and bank transfer. Payment terms will be discussed before starting any project.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Can you handle multiple projects at once?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Yes, but I'm transparent about my availability. If I have a heavy workload, I'll let you know upfront so we can set realistic expectations and timelines.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Do you work with clients outside the Philippines?</span>
+          <span class="faq-arrow">↓</span>
+        </div>
+        <div class="faq-a">Absolutely. I work with clients globally — US, UK, Australia, and beyond. Fluent in English and experienced with remote collaboration. Time zone differences are never a problem.</div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .faq-item { background: var(--bg-card); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.75rem; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text); transition: background 0.2s; user-select: none; }
+    .faq-q:hover { background: var(--bg-hover); }
+    .faq-q.open { color: var(--accent-light); }
+    .faq-arrow { font-size: 16px; color: var(--text-dim); transition: transform 0.3s; }
+    .faq-q.open .faq-arrow { transform: rotate(180deg); color: var(--accent); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; font-size: 13px; line-height: 1.75; color: var(--text-muted); padding: 0 1.75rem; }
+    .faq-a.open { max-height: 200px; padding: 0 1.75rem 1.25rem; }
+  </style>
+
+  <script>
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-q').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
+      if (!isOpen) { el.classList.add('open'); answer.classList.add('open'); }
+    }
+  </script>
+
+  <hr class="divider">
+
   <section id="contact">
     <p class="section-label">Get in touch</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
-
-      <!-- Left side -->
+    <div class="contact-grid">
       <div>
         <h2 style="font-size:32px;font-weight:600;line-height:1.2;margin-bottom:1rem;letter-spacing:-0.01em;">Let's work <em style="font-style:normal;color:var(--accent-light);">together.</em></h2>
         <p style="font-size:14px;line-height:1.8;color:var(--text-muted);margin-bottom:2rem;">Have a project in mind? Fill out the form and I'll get back to you within 24 hours. Let's create something premium.</p>
         <div style="display:flex;flex-direction:column;gap:1rem;">
-          <a href="mailto:laventuresofficialph@gmail.com" class="contact-chip" style="justify-content:flex-start;width:fit-content;">📧 laventuresofficialph@gmail.com</a>
-          <a href="https://linkedin.com/in/madebyla" target="_blank" class="contact-chip" style="justify-content:flex-start;width:fit-content;">💼 linkedin.com/in/madebyla</a>
+          <a href="mailto:laventuresofficialph@gmail.com" class="contact-chip">📧 laventuresofficialph@gmail.com</a>
+          <a href="https://linkedin.com/in/madebyla" target="_blank" class="contact-chip">💼 linkedin.com/in/madebyla</a>
         </div>
       </div>
-
-      <!-- Contact Form -->
       <div class="contact-box reveal">
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
           <input type="hidden" name="form-name" value="contact" />
           <p style="display:none;"><input name="bot-field" /></p>
-
           <div class="form-group">
             <label class="form-label">Your Name</label>
             <input type="text" name="name" class="form-input" placeholder="John Smith" required />
           </div>
-
           <div class="form-group">
             <label class="form-label">Email Address</label>
             <input type="email" name="email" class="form-input" placeholder="john@example.com" required />
           </div>
-
           <div class="form-group">
             <label class="form-label">Service Needed</label>
             <select name="service" class="form-input">
@@ -427,77 +562,18 @@
               <option>Multiple Services</option>
             </select>
           </div>
-
           <div class="form-group">
             <label class="form-label">Tell me about your project</label>
             <textarea name="message" class="form-input form-textarea" placeholder="Describe what you need..." required></textarea>
           </div>
-
-          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" id="submit-btn">
-            Send Message →
-          </button>
+          <button type="submit" class="btn-primary" style="width:100%;" id="submit-btn">Send Message →</button>
           <p id="form-success" style="display:none;color:#4ade80;font-size:13px;margin-top:1rem;text-align:center;font-family:'Space Mono',monospace;">Message sent! I'll get back to you within 24 hours.</p>
         </form>
       </div>
-
     </div>
   </section>
 
-  <style>
-    .form-group { margin-bottom: 1.25rem; }
-    .form-label { display: block; font-size: 12px; font-family: 'Space Mono', monospace; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
-    .form-input {
-      width: 100%;
-      background: #0a0a18;
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-family: 'Space Grotesk', sans-serif;
-      color: var(--text);
-      transition: border-color 0.2s;
-      box-sizing: border-box;
-    }
-    .form-input:focus { outline: none; border-color: var(--accent); }
-    .form-input option { background: #0a0a18; }
-    .form-textarea { min-height: 120px; resize: vertical; }
-    @media (max-width: 768px) {
-      #contact > div { grid-template-columns: 1fr !important; gap: 2rem !important; }
-    }
-  </style>
-
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      const success = document.getElementById('form-success');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(e.target)).toString()
-      }).then(() => {
-        btn.style.display = 'none';
-        success.style.display = 'block';
-        e.target.reset();
-      }).catch(() => {
-        btn.textContent = 'Send Message →';
-        btn.disabled = false;
-      });
-    }
-  </script>
-
-  <div style="max-width:1000px;margin:0 auto;padding:0 3rem 4rem;display:flex;gap:1rem;flex-wrap:wrap;">
-    <a href="#" class="contact-chip">📸 Instagram</a>
-    <a href="#" class="contact-chip">👍 Facebook</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    MadeByLA © 2026 &nbsp;·&nbsp; Built with AI, refined by hand. &nbsp;·&nbsp; Philippines
-  </footer>
+  <footer>MadeByLA © 2026 &nbsp;·&nbsp; Built with AI, refined by hand. &nbsp;·&nbsp; Philippines</footer>
 
   <script>
     /* PARTICLES */
@@ -506,107 +582,96 @@
     let W = canvas.width = window.innerWidth;
     let H = canvas.height = window.innerHeight;
     const particles = Array.from({length: 80}, () => ({
-      x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 2.5 + 0.8,
-      dx: (Math.random() - 0.5) * 0.4, dy: (Math.random() - 0.5) * 0.4,
-      alpha: Math.random() * 0.6 + 0.1
+      x: Math.random()*W, y: Math.random()*H,
+      r: Math.random()*2.5+0.8,
+      dx: (Math.random()-0.5)*0.4, dy: (Math.random()-0.5)*0.4,
+      alpha: Math.random()*0.6+0.1
     }));
     function drawParticles() {
-      ctx.clearRect(0, 0, W, H);
+      ctx.clearRect(0,0,W,H);
       particles.forEach(p => {
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59,130,246,${p.alpha})`; ctx.fill();
-        p.x += p.dx; p.y += p.dy;
-        if (p.x < 0 || p.x > W) p.dx *= -1;
-        if (p.y < 0 || p.y > H) p.dy *= -1;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(59,130,246,${p.alpha})`; ctx.fill();
+        p.x+=p.dx; p.y+=p.dy;
+        if(p.x<0||p.x>W) p.dx*=-1;
+        if(p.y<0||p.y>H) p.dy*=-1;
       });
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-          if (dist < 100) {
-            ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(59,130,246,${0.08*(1-dist/100)})`; ctx.lineWidth = 0.5; ctx.stroke();
+      for(let i=0;i<particles.length;i++) {
+        for(let j=i+1;j<particles.length;j++) {
+          const dist=Math.hypot(particles[i].x-particles[j].x, particles[i].y-particles[j].y);
+          if(dist<100) {
+            ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y);
+            ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.strokeStyle=`rgba(59,130,246,${0.08*(1-dist/100)})`; ctx.lineWidth=0.5; ctx.stroke();
           }
         }
       }
-      const time = Date.now() * 0.0008;
-      const orbX = W * 0.75 + Math.cos(time) * 120;
-      const orbY = H * 0.35 + Math.sin(time * 0.7) * 80;
-      const grad = ctx.createRadialGradient(orbX, orbY, 0, orbX, orbY, 220);
-      grad.addColorStop(0, "rgba(59,130,246,0.22)");
-      grad.addColorStop(0.4, "rgba(59,130,246,0.09)");
-      grad.addColorStop(1, "rgba(59,130,246,0)");
-      ctx.beginPath(); ctx.arc(orbX, orbY, 220, 0, Math.PI * 2);
-      ctx.fillStyle = grad; ctx.fill();
-      const orbX2 = W * 0.15 + Math.cos(time * 0.6 + 2) * 90;
-      const orbY2 = H * 0.65 + Math.sin(time * 0.5) * 70;
-      const grad2 = ctx.createRadialGradient(orbX2, orbY2, 0, orbX2, orbY2, 170);
-      grad2.addColorStop(0, "rgba(147,197,253,0.16)");
-      grad2.addColorStop(0.5, "rgba(59,130,246,0.06)");
-      grad2.addColorStop(1, "rgba(59,130,246,0)");
-      ctx.beginPath(); ctx.arc(orbX2, orbY2, 170, 0, Math.PI * 2);
-      ctx.fillStyle = grad2; ctx.fill();
+      const time=Date.now()*0.0008;
+      const orbX=W*0.75+Math.cos(time)*120, orbY=H*0.35+Math.sin(time*0.7)*80;
+      const g=ctx.createRadialGradient(orbX,orbY,0,orbX,orbY,220);
+      g.addColorStop(0,"rgba(59,130,246,0.22)"); g.addColorStop(0.4,"rgba(59,130,246,0.09)"); g.addColorStop(1,"rgba(59,130,246,0)");
+      ctx.beginPath(); ctx.arc(orbX,orbY,220,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      const orbX2=W*0.15+Math.cos(time*0.6+2)*90, orbY2=H*0.65+Math.sin(time*0.5)*70;
+      const g2=ctx.createRadialGradient(orbX2,orbY2,0,orbX2,orbY2,170);
+      g2.addColorStop(0,"rgba(147,197,253,0.16)"); g2.addColorStop(0.5,"rgba(59,130,246,0.06)"); g2.addColorStop(1,"rgba(59,130,246,0)");
+      ctx.beginPath(); ctx.arc(orbX2,orbY2,170,0,Math.PI*2); ctx.fillStyle=g2; ctx.fill();
       requestAnimationFrame(drawParticles);
     }
     drawParticles();
-    window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
+    window.addEventListener('resize',()=>{ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; });
 
     /* SCROLL REVEAL */
     document.querySelectorAll('.reveal').forEach(el => {
-      new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.1 }).observe(el);
+      new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+      },{threshold:0.1}).observe(el);
     });
 
     /* TYPEWRITER */
-    const em = document.querySelector('h1 em');
-    if (em) {
-      const text = em.textContent; em.textContent = ''; em.classList.add('typewriter');
-      let i = 0;
-      const type = () => { if (i < text.length) { em.textContent += text[i++]; setTimeout(type, 80); } else em.classList.remove('typewriter'); };
-      setTimeout(type, 800);
-    }
+    const em=document.querySelector('h1 em');
+    if(em){ const text=em.textContent; em.textContent=''; em.classList.add('typewriter');
+      let i=0; const type=()=>{ if(i<text.length){em.textContent+=text[i++];setTimeout(type,80);}else em.classList.remove('typewriter'); };
+      setTimeout(type,800); }
 
-    /* NAV SCROLL */
-    const nav = document.getElementById('mainNav');
-    const bar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-      bar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    /* NAV + PROGRESS */
+    const nav=document.getElementById('mainNav');
+    const bar=document.getElementById('progress-bar');
+    window.addEventListener('scroll',()=>{
+      nav.classList.toggle('scrolled',window.scrollY>50);
+      bar.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
     });
 
     /* VIDEO */
-    function toggleVideo(id, btn) {
-      const vid = document.getElementById(id);
-      if (vid.paused) { vid.play(); btn.classList.add('playing'); }
-      else { vid.pause(); btn.classList.remove('playing'); }
-    }
-    document.querySelectorAll('.portfolio-video-wrap video').forEach(vid => {
-      new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          const btn = vid.nextElementSibling;
-          if (e.isIntersecting) { vid.play().then(() => btn.classList.add('playing')).catch(() => {}); }
-          else { vid.pause(); btn.classList.remove('playing'); }
+    function toggleVideo(id,btn){ const v=document.getElementById(id); if(v.paused){v.play();btn.classList.add('playing');}else{v.pause();btn.classList.remove('playing');} }
+    document.querySelectorAll('.portfolio-video-wrap video').forEach(vid=>{
+      new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          const btn=vid.nextElementSibling;
+          if(e.isIntersecting){vid.play().then(()=>btn.classList.add('playing')).catch(()=>{});}
+          else{vid.pause();btn.classList.remove('playing');}
         });
-      }, { threshold: 0.5 }).observe(vid);
+      },{threshold:0.5}).observe(vid);
     });
 
     /* COUNTER */
-    document.querySelectorAll('.stat-num').forEach(el => {
-      new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            const num = parseInt(el.textContent);
-            const suffix = el.textContent.replace(num.toString(), '');
-            if (!isNaN(num)) {
-              let s = 0; const step = num / 75;
-              const t = setInterval(() => { s = Math.min(s + step, num); el.textContent = Math.floor(s) + suffix; if (s >= num) clearInterval(t); }, 16);
-            }
+    document.querySelectorAll('.stat-num').forEach(el=>{
+      new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ const num=parseInt(el.textContent); const suffix=el.textContent.replace(num.toString(),'');
+            if(!isNaN(num)){ let s=0; const step=num/75; const t=setInterval(()=>{ s=Math.min(s+step,num); el.textContent=Math.floor(s)+suffix; if(s>=num)clearInterval(t); },16); }
           }
         });
-      }, { threshold: 0.5 }).observe(el);
+      },{threshold:0.5}).observe(el);
     });
+
+    /* CONTACT FORM */
+    function handleSubmit(e){ e.preventDefault();
+      const btn=document.getElementById('submit-btn'); const success=document.getElementById('form-success');
+      btn.textContent='Sending...'; btn.disabled=true;
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(e.target)).toString()})
+      .then(()=>{ btn.style.display='none'; success.style.display='block'; e.target.reset(); })
+      .catch(()=>{ btn.textContent='Send Message →'; btn.disabled=false; });
+    }
   </script>
 </body>
 </html>
